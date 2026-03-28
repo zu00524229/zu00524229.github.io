@@ -11,10 +11,11 @@ const skills = [
   { icon: 'fa-brands fa-bootstrap',  label: 'Bootstrap',  value: 50, color: '#7952b3' },
 ];
 
+const base = import.meta.env.BASE_URL;
 const demos = [
-  { src: '/images/ninja.gif',   alt: 'NinjaGame',   align: 'flex-start' },
-  { src: '/images/Runner.gif',  alt: '勇者無懼',    align: 'flex-end'   },
-  { src: '/images/doom2D.gif',  alt: 'Doom 仿 3D',  align: 'flex-start' },
+  { src: `${base}images/ninja.gif`,   alt: 'NinjaGame',   align: 'flex-start' },
+  { src: `${base}images/Runner.gif`,  alt: '勇者無懼',    align: 'flex-end'   },
+  { src: `${base}images/doom2D.gif`,  alt: 'Doom 仿 3D',  align: 'flex-start' },
 ];
 ---
 
@@ -67,6 +68,6 @@ const demos = [
 
   <!-- 底部裝飾 -->
   <div class="text-center mt-3">
-    <img src="/images/ground.png" alt="Ground" class="img-fluid" style="max-width: 350px;" />
+    <img src={`${base}images/ground.png`} alt="Ground" class="img-fluid" style="max-width: 350px;" />
   </div>
 </section>

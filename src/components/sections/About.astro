@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL;
 const experiences = [
   {
     period: '2024/10/28 ~ 2025/01/17',
@@ -21,7 +22,7 @@ const experiences = [
         <div class="card-header">我的照片</div>
         <div class="card-body d-flex justify-content-center align-items-center">
           <img
-            src="/images/me.jpg"
+            src={`${base}images/me.jpg`}
             alt="陳文謙"
             class="img-fluid rounded-circle"
             style="max-width: 90%; max-height: 90%; height: auto; width: auto;"
@@ -76,6 +77,6 @@ const experiences = [
   </div>
 
   <div style="text-align: center; margin-top: 5px;">
-    <img src="/images/ground.png" alt="Ground" style="max-width: 350px; height: auto;" />
+    <img src={`${base}images/ground.png`} alt="Ground" style="max-width: 350px; height: auto;" />
   </div>
 </section>

@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL;
 const contacts = [
   {
     containerClass: 'icon-container',
@@ -21,7 +22,7 @@ const contacts = [
       <!-- 角色圖片 -->
       <div class="col-md-6 text-center">
         <img
-          src="/images/thief.png"
+          src={`${base}images/thief.png`}
           alt="Contact Character"
           style="max-width: 350px; height: auto;"
         />

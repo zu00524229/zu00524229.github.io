@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
       Swal.fire({
         position: 'top-end',
         title: icon.getAttribute('data-tooltip'),
-        html: '<img src="/images/lineQrcode.jpg" alt="Line QR Code" style="width: 200px; height: 200px;"/>',
+        html: '<img src="' + (window.BASE_URL || '/') + 'images/lineQrcode.jpg" alt="Line QR Code" style="width: 200px; height: 200px;"/>',
         showConfirmButton: false,
         timer: 3500,
       });

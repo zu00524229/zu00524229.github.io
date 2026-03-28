@@ -52,7 +52,7 @@ const {
     />
   </head>
 
-  <body>
+  <body style={`background-image: url('${import.meta.env.BASE_URL}images/bg4.png')`}>
     <Navbar />
     <main>
       <slot />
@@ -61,8 +61,13 @@ const {
 
     <!-- 回到頂部按鈕 -->
     <a href="#" class="back-to-top">
-      <img src="/images/Up.png" class="img-fluid" alt="Back to top" />
+      <img src={`${import.meta.env.BASE_URL}images/Up.png`} class="img-fluid" alt="Back to top" />
     </a>
+
+    <!-- 注入 BASE_URL 供 public/ 下的 JS 使用 -->
+    <script is:inline define:vars={{ BASE_URL: import.meta.env.BASE_URL }}>
+      window.BASE_URL = BASE_URL;
+    </script>
 
     <!-- CDN Scripts（is:inline 避免 Astro 打包，依序載入維持相依順序） -->
     <script is:inline src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -72,8 +77,8 @@ const {
     <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom Scripts（public/ 資產需加 is:inline，在 CDN 之後執行） -->
-    <script is:inline src="/scripts/smooth-scroll.js"></script>
-    <script is:inline src="/scripts/typed-init.js"></script>
-    <script is:inline src="/scripts/sweetalert-config.js"></script>
+    <script is:inline src={`${import.meta.env.BASE_URL}scripts/smooth-scroll.js`}></script>
+    <script is:inline src={`${import.meta.env.BASE_URL}scripts/typed-init.js`}></script>
+    <script is:inline src={`${import.meta.env.BASE_URL}scripts/sweetalert-config.js`}></script>
   </body>
 </html>
