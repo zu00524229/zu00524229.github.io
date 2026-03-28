@@ -1,10 +1,10 @@
 ---
 const base = import.meta.env.BASE_URL;
 const navItems = [
-  { href: '#about',     icon: 'fa-solid fa-user',       label: 'About'  },
-  { href: '#MySkill',   icon: 'fa-solid fa-gamepad',    label: 'Skill'  },
-  { href: '#portfolio', icon: 'fa-solid fa-briefcase',  label: 'Work'   },
-  { href: '#contact',   icon: 'fa-solid fa-phone-volume', label: 'Contact' },
+  { href: '#about',     icon: 'fa-solid fa-user',         labelZh: '關於我',  labelEn: 'About'   },
+  { href: '#MySkill',   icon: 'fa-solid fa-gamepad',       labelZh: '技能',    labelEn: 'Skills'  },
+  { href: '#portfolio', icon: 'fa-solid fa-briefcase',     labelZh: '作品',    labelEn: 'Work'    },
+  { href: '#contact',   icon: 'fa-solid fa-phone-volume',  labelZh: '聯絡',    labelEn: 'Contact' },
 ];
 ---
 
@@ -29,16 +29,16 @@ const navItems = [
 
   <!-- 導覽連結 -->
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ms-auto">
+    <ul class="navbar-nav ms-auto align-items-center">
       {navItems.map((item) => (
         <li class="nav-item">
           <!-- 桌面版：只顯示 icon -->
           <a class="nav-link text-white d-none d-lg-block" href={item.href}>
             <i class={item.icon}></i>
           </a>
-          <!-- 手機版：顯示文字 -->
+          <!-- 手機版：顯示文字（支援語言切換） -->
           <a class="nav-link text-white d-block d-lg-none" href={item.href}>
-            {item.label}
+            <span data-zh={item.labelZh} data-en={item.labelEn}>{item.labelZh}</span>
           </a>
         </li>
       ))}
@@ -49,6 +49,32 @@ const navItems = [
           <i class="fa-solid fa-comment-dots"></i>
         </button>
       </li>
+
+      <!-- 語言切換 -->
+      <li class="nav-item ms-2">
+        <button id="lang-toggle" class="lang-btn">EN</button>
+      </li>
     </ul>
   </div>
 </nav>
+
+<style>
+  .lang-btn {
+    background: transparent;
+    border: 2px solid #f8c006;
+    color: #f8c006;
+    padding: 3px 10px;
+    font-size: 0.55rem;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    border-radius: 0;
+    box-shadow: 2px 2px 0 #7a5f00;
+    transition: background 0.1s, color 0.1s;
+  }
+  .lang-btn:hover {
+    background: #f8c006;
+    color: #000;
+    box-shadow: none;
+    transform: translate(2px, 2px);
+  }
+</style>

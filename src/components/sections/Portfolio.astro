@@ -3,35 +3,40 @@ const base = import.meta.env.BASE_URL;
 const projects = [
   {
     id: 'learn4',
-    title: 'NinjaGame',
+    titleZh: 'NinjaGame',
+    titleEn: 'NinjaGame',
     img: `${base}images/ninja.gif`,
     alt: 'NinjaGame — Pygame 衝刺閃避動作遊戲',
     useLightbox: false,
   },
   {
     id: 'learn1',
-    title: '火鍋下樓梯',
+    titleZh: '火鍋下樓梯',
+    titleEn: 'Hotpot Stairs',
     img: `${base}images/gm1.gif`,
     alt: '火鍋下樓梯 — Unity 物理碰撞遊戲',
     useLightbox: false,
   },
   {
     id: 'learn2',
-    title: '勇者無懼',
+    titleZh: '勇者無懼',
+    titleEn: 'Fearless Hero',
     img: `${base}images/Runner.gif`,
     alt: '勇者無懼 — Unity 2D 動作遊戲',
     useLightbox: false,
   },
   {
     id: 'learn5',
-    title: 'Doom 仿 3D',
+    titleZh: 'Doom 仿 3D',
+    titleEn: 'Doom-style 3D',
     img: `${base}images/doom2D.gif`,
     alt: 'Doom 仿 3D — Pygame FPS 射擊遊戲',
     useLightbox: false,
   },
   {
     id: 'learn3',
-    title: '一番賞抽獎網站',
+    titleZh: '一番賞抽獎網站',
+    titleEn: 'Lottery Website',
     img: `${base}images/01.png`,
     alt: '一番賞抽獎網站 — Laravel 全端專案',
     useLightbox: true,
@@ -42,7 +47,7 @@ const projects = [
 ---
 
 <section id="portfolio" class="container py-5">
-  <h2 class="text-end mb-4">經驗亮點</h2>
+  <h2 class="text-end mb-4" data-zh="經驗亮點" data-en="Highlights">經驗亮點</h2>
 
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
     {projects.map((project) => (
@@ -62,8 +67,12 @@ const projects = [
           )}
 
           <div class="card-body">
-            <h5 class="card-title">{project.title}</h5>
-            <a class="btn btn-warning" id={project.id}>內容</a>
+            <h5 class="card-title">
+              <span data-zh={project.titleZh} data-en={project.titleEn}>{project.titleZh}</span>
+            </h5>
+            <a class="btn btn-warning" id={project.id}>
+              <span data-zh="內容" data-en="Detail">內容</span>
+            </a>
           </div>
 
         </div>

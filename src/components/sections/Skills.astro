@@ -4,7 +4,7 @@ const skills = [
   { icon: 'fa-brands fa-css3-alt',   label: 'CSS',        value: 40, color: '#2965f1' },
   { icon: 'fa-brands fa-js',         label: 'JavaScript', value: 15, color: '#f7df1e' },
   { icon: 'fa-brands fa-python',     label: 'Python',     value: 60, color: '#3572A5' },
-  { icon: 'fa-solid fa-gamepad',     label: 'pygame',     value: 50, color: '#39ff14' },
+  { icon: 'fa-solid fa-gamepad',     label: 'Pygame',     value: 50, color: '#39ff14' },
   { icon: 'fa-brands fa-php',        label: 'PHP',        value: 55, color: '#777bb4' },
   { icon: 'fa-brands fa-laravel',    label: 'Laravel',    value: 65, color: '#ff2d20' },
   { icon: 'fa-brands fa-unity',      label: 'Unity2D',    value: 40, color: '#ffffff' },
@@ -20,14 +20,16 @@ const demos = [
 ---
 
 <section id="MySkill" class="section container py-5">
-  <h2 class="text-center mb-4">核心技能</h2>
+  <h2 class="text-center mb-4" data-zh="核心技能" data-en="Core Skills">核心技能</h2>
 
   <div class="row">
     <!-- 技能進度條 -->
     <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
       <table style="width: 100%; border-collapse: collapse;">
         <tr>
-          <td colspan="3" style="font-size: 1.2rem; padding: 10px 0;">穩定升級中....</td>
+          <td colspan="3" style="font-size: 1.2rem; padding: 10px 0;">
+            <span data-zh="穩定升級中...." data-en="Steadily leveling up....">穩定升級中....</span>
+          </td>
         </tr>
         {skills.map((skill) => (
           <tr>
@@ -48,7 +50,7 @@ const demos = [
     <!-- 遊戲演示 GIF -->
     <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
       <div class="card p-3 shadow-sm border-primary d-flex flex-column align-items-start">
-        <p><strong>遊戲演示：</strong></p>
+        <p><strong><span data-zh="遊戲演示：" data-en="Game Demos:">遊戲演示：</span></strong></p>
         {demos.map((demo) => (
           <img
             src={demo.src}

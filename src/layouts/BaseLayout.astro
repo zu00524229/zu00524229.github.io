@@ -77,6 +77,7 @@ const {
     <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom Scripts（public/ 資產需加 is:inline，在 CDN 之後執行） -->
+    <script is:inline src={`${import.meta.env.BASE_URL}scripts/lang-switch.js`}></script>
     <script is:inline src={`${import.meta.env.BASE_URL}scripts/smooth-scroll.js`}></script>
     <script is:inline src={`${import.meta.env.BASE_URL}scripts/typed-init.js`}></script>
     <script is:inline src={`${import.meta.env.BASE_URL}scripts/sweetalert-config.js`}></script>

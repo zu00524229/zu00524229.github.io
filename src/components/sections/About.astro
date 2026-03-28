@@ -3,23 +3,27 @@ const base = import.meta.env.BASE_URL;
 const experiences = [
   {
     period: '2024/10/28 ~ 2025/01/17',
-    description: '中彰投職訓局，全端網頁程式設計班學員，製作網頁專案。(前台商品專區)',
+    zh: '中彰投職訓局，全端網頁程式設計班學員，製作網頁專案。(前台商品專區)',
+    en: 'Taichung Workforce Development Agency — Full-Stack Web Development trainee. Built web projects (frontend product section).',
   },
   {
     period: '2020/9 ~ 2024/10',
-    description: '蝦皮網路賣家，負責包裝出貨、現場銷售等等。',
+    zh: '蝦皮網路賣家，負責包裝出貨、現場銷售等等。',
+    en: 'Shopee online seller — responsible for packaging, shipping, and in-person sales.',
   },
 ];
 ---
 
 <section class="section container py-5 text-center" id="about">
-  <h2 class="text-start">About Me</h2>
+  <h2 class="text-start" data-zh="關於我" data-en="About Me">關於我</h2>
 
   <div class="row justify-content-center">
     <!-- 個人照片 -->
     <div class="col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center align-items-start">
       <div class="card mx-3" style="height: 600px; margin-top: 50px;">
-        <div class="card-header">我的照片</div>
+        <div class="card-header">
+          <span data-zh="我的照片" data-en="My Photo">我的照片</span>
+        </div>
         <div class="card-body d-flex justify-content-center align-items-center">
           <img
             src={`${base}images/me.jpg`}
@@ -38,18 +42,20 @@ const experiences = [
         <!-- 介紹卡片 -->
         <div class="col-12 mb-4" style="margin-top: 100px;">
           <div class="card mx-3">
-            <div class="card-header">介紹</div>
+            <div class="card-header">
+              <span data-zh="介紹" data-en="Profile">介紹</span>
+            </div>
             <div class="card-body">
               <p class="card-text">
                 <i class="fa-solid fa-angle-right"></i>
-                　<span style="font-size: 20px;">陳文謙</span><br />
+                　<span style="font-size: 20px;" data-zh="陳文謙" data-en="Wen-Chien Chen">陳文謙</span><br />
                 <i class="fa-solid fa-angle-right"></i>
                 　1996/05/07<br />
                 <i class="fa-solid fa-angle-right"></i>
-                　<span style="font-size: 20px;">台中市南區</span><br />
+                　<span style="font-size: 20px;" data-zh="台中市南區" data-en="South District, Taichung">台中市南區</span><br />
                 <i class="fa-solid fa-angle-right"></i>
-                　<span style="font-size: 20px;">埔里高工機械科、</span><br />
-                　2019<span style="font-size: 20px;">年肄業於朝陽科技大學工業設計系四年級</span>
+                　<span style="font-size: 20px;" data-zh="埔里高工機械科、" data-en="Puli Industrial High School, Mechanical Dept.">埔里高工機械科、</span><br />
+                　<span data-zh="2019年肄業於朝陽科技大學工業設計系四年級" data-en="Withdrew from Chaoyang University of Technology, Industrial Design (2019, senior year)">2019年肄業於朝陽科技大學工業設計系四年級</span>
               </p>
             </div>
           </div>
@@ -58,13 +64,15 @@ const experiences = [
         <!-- 個人經歷卡片 -->
         <div class="col-12">
           <div class="card mx-3">
-            <div class="card-header">個人經歷</div>
+            <div class="card-header">
+              <span data-zh="個人經歷" data-en="Experience">個人經歷</span>
+            </div>
             <div class="card-body">
               <blockquote class="blockquote mb-0">
                 {experiences.map((exp) => (
                   <>
                     <span style="font-size: 20px;">{exp.period}</span><br />
-                    <span style="font-size: 18px;">{exp.description}</span><br />
+                    <span style="font-size: 18px;" data-zh={exp.zh} data-en={exp.en}>{exp.zh}</span><br /><br />
                   </>
                 ))}
               </blockquote>

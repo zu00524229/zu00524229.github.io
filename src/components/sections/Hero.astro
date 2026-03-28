@@ -2,21 +2,40 @@
 const base = import.meta.env.BASE_URL;
 ---
 
-<header class="resume-header" style="padding-top: 100px;">
+<header class="resume-header" style="padding-top: 90px;">
   <div class="container">
-    <div class="row">
-      <div class="card col-md-12 border-warning" style="font-size: 1rem; height: 300px;">
-        <h5 class="card-header" style="font-size: 2rem;">Hello!!</h5>
-        <div class="card-body" style="padding-left: 50px; padding-top: 20px; height: auto;">
-          <h5 class="card-title" style="font-size: 2rem;">I'm Wen Chien.</h5>
-          <br />
-          <p class="card-text" style="font-size: 1.5rem;">
-            　　　　Welcome to my resume. Nice to meet you.
-          </p>
+    <div class="row align-items-center g-4">
+
+      <!-- 左：文字卡片 -->
+      <div class="col-lg-8 col-md-7">
+        <div class="card border-warning">
+          <h5 class="card-header" style="font-size: 1.8rem;">
+            <span data-zh="哈囉！！" data-en="Hello!!">哈囉！！</span>
+          </h5>
+          <div class="card-body" style="padding: 24px 32px;">
+            <h5 class="card-title" style="font-size: 1.6rem;">I'm Wen Chien.</h5>
+            <p class="card-text mt-3" style="font-size: 1.2rem; line-height: 1.8;">
+              <span
+                data-zh="歡迎來到我的履歷，很高興認識你！"
+                data-en="Welcome to my resume. Nice to meet you!"
+              >歡迎來到我的履歷，很高興認識你！</span>
+            </p>
+          </div>
         </div>
       </div>
+
+      <!-- 右：角色圖 -->
+      <div class="col-lg-4 col-md-5 text-center">
+        <img
+          src={`${base}images/ninja.gif`}
+          alt="Character"
+          style="max-width: 200px; image-rendering: pixelated; image-rendering: crisp-edges;"
+        />
+      </div>
+
     </div>
   </div>
+
   <div style="text-align: center; margin-top: 20px;">
     <img src={`${base}images/ground.png`} alt="Ground" style="max-width: 350px; height: auto;" />
   </div>
