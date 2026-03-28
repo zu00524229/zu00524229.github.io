@@ -1,0 +1,79 @@
+---
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import '../styles/base.css';
+import '../styles/layout.css';
+import '../styles/components.css';
+import '../styles/pixel-theme.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = '陳文謙 | 個人履歷',
+  description = '陳文謙的個人履歷網站，展示遊戲開發作品與技術技能',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- SweetAlert2 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css"
+      rel="stylesheet"
+    />
+    <!-- Lightbox2 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css"
+      rel="stylesheet"
+    />
+    <!-- Pixel Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <Navbar />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- 回到頂部按鈕 -->
+    <a href="#" class="back-to-top">
+      <img src="/images/Up.png" class="img-fluid" alt="Back to top" />
+    </a>
+
+    <!-- CDN Scripts（is:inline 避免 Astro 打包，依序載入維持相依順序） -->
+    <script is:inline src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
+    <script is:inline src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Scripts（public/ 資產需加 is:inline，在 CDN 之後執行） -->
+    <script is:inline src="/scripts/smooth-scroll.js"></script>
+    <script is:inline src="/scripts/typed-init.js"></script>
+    <script is:inline src="/scripts/sweetalert-config.js"></script>
+  </body>
+</html>

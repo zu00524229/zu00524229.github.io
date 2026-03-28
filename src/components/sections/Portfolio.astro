@@ -1,0 +1,72 @@
+---
+const projects = [
+  {
+    id: 'learn4',
+    title: 'NinjaGame',
+    img: '/images/ninja.gif',
+    alt: 'NinjaGame — Pygame 衝刺閃避動作遊戲',
+    useLightbox: false,
+  },
+  {
+    id: 'learn1',
+    title: '火鍋下樓梯',
+    img: '/images/gm1.gif',
+    alt: '火鍋下樓梯 — Unity 物理碰撞遊戲',
+    useLightbox: false,
+  },
+  {
+    id: 'learn2',
+    title: '勇者無懼',
+    img: '/images/Runner.gif',
+    alt: '勇者無懼 — Unity 2D 動作遊戲',
+    useLightbox: false,
+  },
+  {
+    id: 'learn5',
+    title: 'Doom 仿 3D',
+    img: '/images/doom2D.gif',
+    alt: 'Doom 仿 3D — Pygame FPS 射擊遊戲',
+    useLightbox: false,
+  },
+  {
+    id: 'learn3',
+    title: '一番賞抽獎網站',
+    img: '/images/01.png',
+    alt: '一番賞抽獎網站 — Laravel 全端專案',
+    useLightbox: true,
+    lightboxSrc: '/images/project1.gif',
+    lightboxTitle: '一番賞抽獎網站',
+  },
+];
+---
+
+<section id="portfolio" class="container py-5">
+  <h2 class="text-end mb-4">經驗亮點</h2>
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+    {projects.map((project) => (
+      <div class="col">
+        <div class="card portfolio-card h-100">
+
+          {project.useLightbox ? (
+            <a
+              href={project.lightboxSrc}
+              data-lightbox="portfolio"
+              data-title={project.lightboxTitle}
+            >
+              <img src={project.img} class="card-img-top pixel-gif" alt={project.alt} />
+            </a>
+          ) : (
+            <img src={project.img} class="card-img-top pixel-gif" alt={project.alt} />
+          )}
+
+          <div class="card-body">
+            <h5 class="card-title">{project.title}</h5>
+            <a class="btn btn-warning" id={project.id}>內容</a>
+          </div>
+
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

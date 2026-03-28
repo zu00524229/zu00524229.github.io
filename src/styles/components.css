@@ -1,0 +1,348 @@
+/* ===================================
+   components.css — Cards、Buttons、Forms、Progress
+   =================================== */
+
+/* ===== Card Header ===== */
+.card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: #1a1a1a;
+  border-bottom: 2px solid #f8c006;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  color: #f8c006;
+}
+
+/* ===== Card ===== */
+.card {
+  border-radius: 0 !important;
+  border: 4px solid #ffffff;
+  box-shadow: 6px 6px 0 0 #555, 12px 12px 0 0 rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.1s steps(2), transform 0.1s steps(2), border-color 0.1s steps(1);
+  cursor: pointer;
+  opacity: 0.95;
+  background-color: #0d0d0d;
+  display: flex;
+  color: #ffffff;
+  text-align: left;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.card-body {
+  padding-left: 25px;
+}
+
+.card:hover {
+  border-color: #f8c006;
+  box-shadow: 6px 6px 0 0 #7a5f00, 0 0 0 2px #f8c006, 0 0 20px rgba(248, 192, 6, 0.4);
+  transform: translate(-2px, -2px);
+  opacity: 1;
+  filter: brightness(1.1);
+}
+
+.card img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.card-content {
+  padding: 15px;
+  text-align: right;
+}
+
+.card-content h3 {
+  margin: 10px 0;
+  font-size: 16px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.card-content p {
+  font-size: 12px;
+  color: #f88706;
+  font-family: 'Press Start 2P', cursive;
+}
+
+/* ===== Hero Card ===== */
+.resume-header .card {
+  border: 4px solid #f8c006 !important;
+  border-radius: 0 !important;
+  box-shadow: 8px 8px 0 0 #7a5f00;
+}
+
+/* ===== Typed.js Card ===== */
+.border-success {
+  border-color: #39ff14 !important;
+  border-width: 3px !important;
+  border-radius: 0 !important;
+  box-shadow: 4px 4px 0 0 #1a7a00;
+  background-color: #001a00 !important;
+}
+
+/* ===== Profile Photo (override rounded-circle) ===== */
+.rounded-circle {
+  border-radius: 0 !important;
+  border: 4px solid #f8c006;
+  box-shadow: 4px 4px 0 0 #7a5f00;
+  image-rendering: pixelated;
+}
+
+/* ===== Buttons ===== */
+button {
+  background-color: #f88706;
+  color: black;
+  border: 3px solid #000;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  border-radius: 0 !important;
+  font-family: 'Press Start 2P', cursive;
+  box-shadow: 4px 4px 0 0 #7a3a00;
+  transition: box-shadow 0.05s, transform 0.05s;
+}
+
+button:hover {
+  color: black;
+  box-shadow: 2px 2px 0 0 #7a3a00;
+  transform: translate(2px, 2px);
+  filter: brightness(1.1);
+}
+
+button:active {
+  box-shadow: none;
+  transform: translate(4px, 4px);
+}
+
+.btn-warning {
+  border-radius: 0 !important;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.55rem;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 0 #7a3a00;
+  transition: box-shadow 0.05s, transform 0.05s;
+  padding: 8px 12px;
+}
+
+.btn-warning:hover {
+  box-shadow: 2px 2px 0 0 #7a3a00;
+  transform: translate(2px, 2px);
+}
+
+.btn-warning:active {
+  box-shadow: none;
+  transform: translate(4px, 4px);
+}
+
+/* ===== Form ===== */
+#contact {
+  background-color: rgba(37, 36, 36, 0.14);
+  padding: 2rem;
+  text-align: center;
+  color: #ffffff;
+}
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  background: #111;
+  padding: 2rem;
+  border-radius: 0;
+  border: 4px solid #f88706;
+  box-shadow: 6px 6px 0 0 #7a3a00;
+}
+
+form input,
+form textarea,
+form button {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 1rem;
+  border: 2px solid #f88706;
+  background: #0d0d0d;
+  color: #f88706;
+  font-size: 0.8rem;
+  border-radius: 0;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+form button {
+  background-color: #f88706;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+}
+
+form button:hover {
+  background-color: #f7eb05;
+  color: black;
+  box-shadow: 4px 4px 0 0 #7a5f00;
+}
+
+/* ===== Back to Top ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  background-color: #1a1a1a;
+  color: white;
+  border-radius: 0 !important;
+  border: 3px solid #f8c006;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 4px 4px 0 0 #7a5f00;
+  transition: box-shadow 0.05s, transform 0.05s;
+}
+
+.back-to-top:hover {
+  transform: translate(2px, 2px);
+  border-color: #39ff14;
+  box-shadow: 2px 2px 0 0 #1a7a00, 0 0 12px rgba(57, 255, 20, 0.5);
+}
+
+.back-to-top img {
+  width: 36px;
+  height: 36px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* ===== Skill List ===== */
+.skill-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ===== Carousel ===== */
+.carousel {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* ===== Progress Bars ===== */
+.progress {
+  font-family: 'Press Start 2P', cursive;
+}
+
+.pixel-progress {
+  height: 20px;
+  background-color: #111;
+  border: 3px solid #555;
+  border-radius: 0 !important;
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  box-shadow: 3px 3px 0 0 #000;
+}
+
+.pixel-progress::-webkit-progress-bar {
+  background-color: #111;
+  border-radius: 0;
+}
+
+.pixel-progress::-webkit-progress-value {
+  background: repeating-linear-gradient(
+    90deg,
+    #39ff14 0px,
+    #39ff14 8px,
+    #2ec400 8px,
+    #2ec400 12px
+  );
+  image-rendering: pixelated;
+  border-radius: 0;
+  box-shadow: 0 0 6px rgba(57, 255, 20, 0.5);
+}
+
+.pixel-progress::-moz-progress-bar {
+  background: repeating-linear-gradient(
+    90deg,
+    #39ff14 0px,
+    #39ff14 8px,
+    #2ec400 8px,
+    #2ec400 12px
+  );
+  border-radius: 0;
+}
+
+.fa-brands {
+  margin-right: 10px;
+}
+
+/* ===== Portfolio Cards ===== */
+.portfolio-card {
+  transition: box-shadow 0.1s steps(2), transform 0.1s steps(2);
+  border-radius: 0 !important;
+}
+
+.portfolio-card img {
+  object-fit: cover;
+  height: 200px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  border-bottom: 3px solid #555;
+}
+
+.portfolio-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 0 #f8c006, 0 0 0 3px #f8c006;
+}
+
+.portfolio-card .card-body {
+  text-align: center;
+  background-color: #0d0d0d;
+}
+
+.row-cols-1 .col,
+.row-cols-sm-2 .col,
+.row-cols-md-3 .col {
+  margin-bottom: 20px;
+}
+
+/* ===== Pixel GIF ===== */
+.pixel-gif {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  border: 3px solid #555;
+  box-shadow: 4px 4px 0 0 #000;
+  display: block;
+}
+
+/* ===== Contact Icons ===== */
+.icon-container i {
+  transition: transform 0.1s steps(2);
+  cursor: pointer;
+}
+
+.icon-container i:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px #39ff14);
+}
+
+.icon-container2 i {
+  cursor: pointer;
+  transition: filter 0.1s steps(1);
+}
+
+.icon-container2 i:hover {
+  filter: drop-shadow(0 0 10px #f88706);
+  transform: scale(1.1);
+}

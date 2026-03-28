@@ -1,0 +1,53 @@
+---
+const navItems = [
+  { href: '#about',     icon: 'fa-solid fa-user',       label: 'About'  },
+  { href: '#MySkill',   icon: 'fa-solid fa-gamepad',    label: 'Skill'  },
+  { href: '#portfolio', icon: 'fa-solid fa-briefcase',  label: 'Work'   },
+  { href: '#contact',   icon: 'fa-solid fa-phone-volume', label: 'Contact' },
+];
+---
+
+<nav
+  class="navbar navbar-expand-lg"
+  style="background-color: #000000; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;"
+>
+  <a class="navbar-brand" href="#">Touch</a>
+
+  <!-- 漢堡選單按鈕 -->
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <img src="/images/menu.png" alt="Menu" />
+  </button>
+
+  <!-- 導覽連結 -->
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ms-auto">
+      {navItems.map((item) => (
+        <li class="nav-item">
+          <!-- 桌面版：只顯示 icon -->
+          <a class="nav-link text-white d-none d-lg-block" href={item.href}>
+            <i class={item.icon}></i>
+          </a>
+          <!-- 手機版：顯示文字 -->
+          <a class="nav-link text-white d-block d-lg-none" href={item.href}>
+            {item.label}
+          </a>
+        </li>
+      ))}
+
+      <!-- 留言板按鈕 -->
+      <li class="nav-item">
+        <button id="openFormBtn" class="btn btn-link text-white">
+          <i class="fa-solid fa-comment-dots"></i>
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>

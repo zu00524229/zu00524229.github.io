@@ -1,0 +1,46 @@
+---
+const contacts = [
+  {
+    containerClass: 'icon-container',
+    icon: 'fa-brands fa-line',
+    tooltip: 'ID: zu005242299',
+  },
+  {
+    containerClass: 'icon-container2',
+    icon: 'fa-regular fa-envelope',
+    tooltip: 'chien00507@gmail.com',
+  },
+];
+---
+
+<section class="section" id="contact">
+  <div class="container mt-5">
+    <h2 class="mb-4 text-center">Contact Me</h2>
+
+    <div class="row align-items-center">
+      <!-- 角色圖片 -->
+      <div class="col-md-6 text-center">
+        <img
+          src="/images/thief.png"
+          alt="Contact Character"
+          style="max-width: 350px; height: auto;"
+        />
+      </div>
+
+      <!-- 聯絡圖示 -->
+      <div class="col-md-6">
+        <div class="d-flex justify-content-center">
+          {contacts.map((contact) => (
+            <div class={`${contact.containerClass} mx-3 text-center`}>
+              <i
+                class={contact.icon}
+                style="font-size: 100px; cursor: pointer;"
+                data-tooltip={contact.tooltip}
+              ></i>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

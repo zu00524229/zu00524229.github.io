@@ -1,0 +1,68 @@
+/* ===================================
+   pixel-theme.css — CRT Effects、Glow、Animations
+   =================================== */
+
+/* ===== CRT 掃描線覆蓋 ===== */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.04) 0px,
+    rgba(0, 0, 0, 0.04) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+/* ===== 像素圖片渲染 (裝飾類圖片) ===== */
+img[src*='ground.png'],
+img[src*='thief.png'],
+img[src*='Up.png'],
+img[src*='menu.png'],
+img[src*='me.jpg'] {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+/* ===== 像素閃爍 ===== */
+@keyframes pixel-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ===== 像素光暈循環 ===== */
+@keyframes pixel-glow {
+  0% {
+    box-shadow: 4px 4px 0 0 #f8c006;
+  }
+  50% {
+    box-shadow: 4px 4px 0 0 #39ff14, 0 0 12px #39ff14;
+  }
+  100% {
+    box-shadow: 4px 4px 0 0 #f8c006;
+  }
+}
+
+/* ===== 文字閃爍游標 ===== */
+@keyframes cursor-blink {
+  0%,
+  100% {
+    border-right-color: #39ff14;
+  }
+  50% {
+    border-right-color: transparent;
+  }
+}

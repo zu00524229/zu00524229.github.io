@@ -1,0 +1,79 @@
+/* ===================================
+   base.css — Reset、Typography、Body
+   =================================== */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  padding-top: 50px;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  overflow-x: hidden;
+  background-image: url('/images/bg4.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+@media (max-width: 480px) {
+  body {
+    background-size: contain;
+  }
+}
+
+/* Typography */
+h2 {
+  margin-bottom: 20px;
+  font-family: 'VT323', sans-serif;
+  font-weight: bold;
+  font-size: 3em;
+  color: #f8c006;
+  text-shadow: 3px 3px 0 #7a5f00, 6px 6px 0 rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+}
+
+h5,
+.card-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+td {
+  padding: 5px;
+}
+
+/* Pixel Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+  border-left: 2px solid #333;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f8c006;
+  border: 2px solid #000;
+  box-shadow: inset -2px -2px 0 #7a5f00;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #39ff14;
+  box-shadow: inset -2px -2px 0 #1a7a00;
+}
+
+/* Section base */
+section {
+  text-align: center;
+  padding-top: 100px;
+  margin: 15px;
+}

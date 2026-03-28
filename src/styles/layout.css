@@ -1,0 +1,199 @@
+/* ===================================
+   layout.css — Navbar、Footer、Grid
+   =================================== */
+
+/* ===== Navbar ===== */
+.navbar {
+  background-color: #000 !important;
+  border-bottom: 4px solid #f8c006;
+  box-shadow: 0 4px 0 0 #7a5f00, 0 8px 0 0 rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-family: 'Press Start 2P', cursive !important;
+  font-size: 0.9rem !important;
+  color: #f8c006 !important;
+  text-shadow: 2px 2px 0 #7a5f00;
+  letter-spacing: 2px;
+}
+
+.navbar-nav img {
+  height: 32px;
+  width: auto;
+  display: block;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.navbar-toggler img {
+  width: 36px;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.navbar-nav .nav-link {
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.1s steps(1), text-shadow 0.1s steps(1);
+  text-decoration: none;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #39ff14 !important;
+  text-shadow: 0 0 8px #39ff14, 0 0 16px #39ff14;
+}
+
+.navbar-nav .nav-item + .nav-item {
+  margin-left: 10px;
+}
+
+@media (max-width: 1024px) {
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+    padding: 8px 10px;
+  }
+  .navbar-nav img {
+    height: 26px;
+  }
+  .navbar-toggler img {
+    width: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-nav .nav-link {
+    font-size: 0.95rem;
+  }
+  .navbar-nav img {
+    height: 24px;
+  }
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: #000;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #f88706;
+  border-top: 4px solid #f8c006;
+  box-shadow: 0 -4px 0 0 #7a5f00;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  line-height: 2;
+}
+
+footer a {
+  color: #f88706;
+  text-decoration: none;
+  font-size: 0.6rem;
+  transition: color 0.1s steps(1);
+}
+
+footer a:hover {
+  color: #39ff14;
+  text-shadow: 0 0 8px #39ff14;
+}
+
+/* ===== Card Container ===== */
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* ===== Bento Layout ===== */
+.bento-item {
+  text-align: left;
+  color: white;
+  transition: transform 0.1s steps(2);
+  overflow: hidden;
+  flex: 1 1 calc(33.33% - 20px);
+  box-sizing: border-box;
+  padding: 30px;
+  padding-top: 10px;
+  font-size: 2em;
+  background-color: #0d0d0d;
+  border: 3px solid #444;
+}
+
+@media (max-width: 1024px) {
+  .bento-item {
+    flex: 1 1 calc(50% - 20px);
+    font-weight: bold;
+  }
+  .card-3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bento-item {
+    flex: 1 1 100%;
+    font-weight: bold;
+    font-size: 1em;
+  }
+}
+
+/* ===== RPG Frame ===== */
+.Rpg {
+  background-color: #0d0d0d;
+  border: 6px solid #fff;
+  box-shadow: 6px 6px 0 0 #555;
+  font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+  justify-content: space-between;
+  padding: 10px;
+  padding-left: 20px;
+  font-size: 1em;
+}
+
+/* ===== Skill Row ===== */
+.skill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.caed-3 {
+  font-size: 2rem;
+}
+
+@media (max-width: 480px) {
+  .skill {
+    font-size: 14px;
+  }
+  .Rpg {
+    gap: 10px;
+  }
+}
+
+/* ===== #MySkill heading ===== */
+#MySkill h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+#MySkill table td {
+  font-size: 1.8rem;
+}
+
+@media (max-width: 768px) {
+  #MySkill table td {
+    font-size: 1.4rem;
+  }
+  #MySkill h2 {
+    font-size: 2rem;
+  }
+}
