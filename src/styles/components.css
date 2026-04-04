@@ -330,6 +330,69 @@ form button:hover {
   display: block;
 }
 
+/* ===== Lightbox2 像素風覆寫 ===== */
+.lightboxOverlay {
+  background: #000 !important;
+  opacity: 0.88 !important;
+}
+
+
+.lightbox .lb-image {
+  border: 4px solid #ff7a1a !important;
+  border-radius: 0 !important;
+  box-shadow: 8px 8px 0 #7a2800 !important;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.lb-outerContainer {
+  background: #0d0808 !important;
+  border: 4px solid #ff7a1a !important;
+  border-radius: 0 !important;
+  box-shadow: 8px 8px 0 #7a2800 !important;
+}
+
+.lb-dataContainer {
+  background: #1a0a05 !important;
+  border-top: 2px solid #3a1a00 !important;
+  border-radius: 0 !important;
+  padding: 8px 12px !important;
+}
+
+.lb-caption {
+  color: #ff9944 !important;
+  font-family: 'Press Start 2P', cursive !important;
+  font-size: 0.55rem !important;
+  line-height: 2 !important;
+}
+
+.lb-number {
+  color: #e86010 !important;
+  font-family: 'Press Start 2P', cursive !important;
+  font-size: 0.5rem !important;
+}
+
+.lb-close {
+  filter: invert(55%) sepia(80%) saturate(500%) hue-rotate(355deg) !important;
+  opacity: 1 !important;
+}
+
+.lb-close:hover {
+  filter: invert(75%) sepia(80%) saturate(400%) hue-rotate(355deg) !important;
+}
+
+.lb-prev,
+.lb-next {
+  opacity: 0.7 !important;
+  filter: invert(55%) sepia(80%) saturate(500%) hue-rotate(355deg) !important;
+}
+
+.lb-prev:hover,
+.lb-next:hover {
+  opacity: 1 !important;
+  filter: invert(75%) sepia(80%) saturate(400%) hue-rotate(355deg) !important;
+}
+
 /* ===== SweetAlert2 像素風覆寫 ===== */
 .swal2-container {
   backdrop-filter: none !important;
