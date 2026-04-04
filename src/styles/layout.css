@@ -102,6 +102,19 @@ footer a:hover {
   text-shadow: 0 0 8px #ff7a1a;
 }
 
+/* ===== Room Divider ===== */
+.room-divider {
+  height: 20px;
+  background: repeating-linear-gradient(
+    90deg,
+    #1a0800 0px, #1a0800 24px,
+    #0d0404 24px, #0d0404 48px
+  );
+  border-top: 3px solid #3a1a00;
+  border-bottom: 3px solid #3a1a00;
+  margin: 0 15px;
+}
+
 /* ===== Card Container ===== */
 .card-container {
   display: flex;
