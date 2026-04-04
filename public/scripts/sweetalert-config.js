@@ -1,6 +1,20 @@
 // sweetalert-config.js — 作品集彈窗 + 聯絡方式 + 留言板
 
 document.addEventListener('DOMContentLoaded', function () {
+  // ===== 像素風 Swal 預設 =====
+  var PixelSwal = Swal.mixin({
+    background: '#0d0808',
+    color: '#ffffff',
+    customClass: {
+      popup:         'pixel-swal-popup',
+      title:         'pixel-swal-title',
+      htmlContainer: 'pixel-swal-content',
+      confirmButton: 'pixel-swal-confirm',
+      closeButton:   'pixel-swal-close',
+    },
+    buttonsStyling: false,
+  });
+
   // ===== 作品集說明彈窗 =====
   var learnConfigs = {
     learn1: {
@@ -29,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var el = document.getElementById(id);
     if (el) {
       el.addEventListener('click', function () {
-        Swal.fire(learnConfigs[id]);
+        PixelSwal.fire(learnConfigs[id]);
       });
     }
   });
@@ -37,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // ===== Line QR Code =====
   document.querySelectorAll('.icon-container i').forEach(function (icon) {
     icon.addEventListener('click', function () {
-      Swal.fire({
+      PixelSwal.fire({
         position: 'top-end',
         title: icon.getAttribute('data-tooltip'),
         html: '<img src="' + (window.BASE_URL || '/') + 'images/lineQrcode.jpg" alt="Line QR Code" style="width: 200px; height: 200px;"/>',
@@ -50,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // ===== Email =====
   document.querySelectorAll('.icon-container2 i').forEach(function (icon) {
     icon.addEventListener('click', function () {
-      Swal.fire({
+      PixelSwal.fire({
         position: 'top-end',
         title: icon.getAttribute('data-tooltip'),
         html: '<i class="fa-regular fa-thumbs-up" style="font-size: 30px;"></i>',
@@ -64,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var openFormBtn = document.getElementById('openFormBtn');
   if (openFormBtn) {
     openFormBtn.addEventListener('click', function () {
-      Swal.fire({
+      PixelSwal.fire({
         title: '留下您的留言',
         html: '<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScyxsSOtDgTPmaQsWfscOwnde8gPbItfqFjPrFIN0caoRVv8w/viewform?usp=sharing" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>',
         showCloseButton: true,
