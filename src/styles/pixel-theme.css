@@ -22,7 +22,6 @@ body::after {
 }
 
 /* ===== 像素圖片渲染 (裝飾類圖片) ===== */
-img[src*='ground.png'],
 img[src*='thief.png'],
 img[src*='Up.png'],
 img[src*='menu.png'],
@@ -46,13 +45,13 @@ img[src*='me.jpg'] {
 /* ===== 像素光暈循環 ===== */
 @keyframes pixel-glow {
   0% {
-    box-shadow: 4px 4px 0 0 #f8c006;
+    box-shadow: 4px 4px 0 0 #e86010;
   }
   50% {
-    box-shadow: 4px 4px 0 0 #39ff14, 0 0 12px #39ff14;
+    box-shadow: 4px 4px 0 0 #ff9944, 0 0 12px rgba(255, 122, 26, 0.7);
   }
   100% {
-    box-shadow: 4px 4px 0 0 #f8c006;
+    box-shadow: 4px 4px 0 0 #e86010;
   }
 }
 
@@ -60,7 +59,7 @@ img[src*='me.jpg'] {
 @keyframes cursor-blink {
   0%,
   100% {
-    border-right-color: #39ff14;
+    border-right-color: #ff7a1a;
   }
   50% {
     border-right-color: transparent;

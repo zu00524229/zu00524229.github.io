@@ -3,7 +3,8 @@
     "allow": [
       "Bash(git -C /c/Users/USER/OneDrive/桌面/ZUChien/zuchien.github.io remote -v)",
       "Bash(npx chrome-devtools-mcp@latest --help)",
-      "Bash(start chrome:*)"
+      "Bash(start chrome:*)",
+      "WebFetch(domain:buche.dev)"
     ]
   }
 }
