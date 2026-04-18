@@ -27,7 +27,7 @@
 ## 設計系統
 
 ### 風格定位
-**像素藝術 + 深黑深橘**，參考 buche.dev 的沉浸式房間感，但維持捲動式單頁架構。
+**像素藝術 + 深黑深橘**，Hero 區額外疊加賽博龐克霓虹（Canvas 遊戲專用），整體維持捲動式單頁架構。
 
 ### 配色
 
@@ -70,7 +70,7 @@ src/
 │   │   ├── Navbar.astro       # 固定頂部導覽，含語言切換按鈕
 │   │   └── Footer.astro       # 頁尾版權
 │   └── sections/
-│       ├── Hero.astro         # 像素場景：角色 + 地板 + 對話框
+│       ├── Hero.astro         # 跑馬燈 + Canvas 打磚塊遊戲（自介關鍵字磚塊 + Web Audio）
 │       ├── About.astro        # 個人介紹 + 經歷卡片
 │       ├── Skills.astro       # 技能進度條 + 遊戲 GIF + Typed.js
 │       ├── Portfolio.astro    # 作品集卡片（含 Lightbox）
@@ -86,10 +86,17 @@ src/
 
 ## 設計元素說明
 
-### Hero（像素場景）
-- 左：ninja.gif 角色圖，腳下有像素地板條（CSS repeating-gradient）
-- 右：遊戲對話框（`.dialogue-box`），橘色邊框、說話者標籤 `PLAYER_001`
-- 手機版：上下排列
+### Hero（互動 Canvas 打磚塊遊戲）
+- 頂部：CSS 跑馬燈（`.marquee-bar`），顯示中文自我介紹，Press Start 2P 橘色字
+- 主體：Canvas 2D 打磚塊遊戲，全部在 `<script is:inline>` 內完成，無外部套件
+- 磚塊：6 排共 18 顆，文字為英文自介關鍵字（HELLO、WEN CHIEN、FULLSTACK DEV…）
+  - 賽博龐克霓虹配色（品紅 / 青藍 / 熱粉 / 螢光綠 / 黃 / 紫），`shadowBlur` glow 效果
+  - 無方塊外框，純文字顯示；碰撞判定用 `ctx.measureText()` 量實際文字寬度（`b.tw / b.th`）
+  - 前兩排 hp=2，需打兩下；已被打過一次時透明度降至 0.45
+- 操作：滑鼠移動控制擋板，**點擊發球**；觸控裝置同步支援
+- 音效：Web Audio API 振盪器合成，無音檔（wall / paddle / break 各自不同頻率）
+- 粒子爆炸：磚塊破碎時噴出文字字元，每顆隨機抽 8 種霓虹色
+- 背景格線：青藍色 0.04 透明度 32px grid
 
 ### Room Divider（`.room-divider`）
 - 各 section 之間的分隔線，模擬場景切換感
