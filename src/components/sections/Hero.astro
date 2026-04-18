@@ -1,154 +1,492 @@
 ---
-const base = import.meta.env.BASE_URL;
 ---
 
-<header class="pixel-scene">
-  <div class="scene-inner">
+<header class="hero-wrapper">
 
-    <!-- 角色 -->
-    <div class="scene-character">
-      <img
-        src={`${base}images/ninja.gif`}
-        alt="Character"
-      />
-      <div class="scene-floor"></div>
+  <!-- 跑馬燈 -->
+  <div class="marquee-bar" aria-hidden="true">
+    <div class="marquee-track">
+      <span>哈囉！！ ★ 我是陳文謙 ★ 全端開發者 ★ 遊戲開發者 ★ 歡迎來到我的履歷 ★ 很高興認識你！ ★ &nbsp;&nbsp;&nbsp;</span>
+      <span>哈囉！！ ★ 我是陳文謙 ★ 全端開發者 ★ 遊戲開發者 ★ 歡迎來到我的履歷 ★ 很高興認識你！ ★ &nbsp;&nbsp;&nbsp;</span>
     </div>
-
-    <!-- 對話框 -->
-    <div class="dialogue-box">
-      <div class="dialogue-speaker">PLAYER_001</div>
-      <div class="dialogue-content">
-        <p class="d-line">
-          <span data-zh="哈囉！！" data-en="Hello!!">哈囉！！</span>
-        </p>
-        <p class="d-line d-name">I'm Wen Chien.</p>
-        <p class="d-line d-sub">
-          <span
-            data-zh="歡迎來到我的履歷，很高興認識你！"
-            data-en="Welcome to my resume. Nice to meet you!"
-          >歡迎來到我的履歷，很高興認識你！</span>
-        </p>
-      </div>
-      <div class="dialogue-cursor">▶</div>
-    </div>
-
   </div>
+
+  <!-- Canvas 遊戲 -->
+  <div class="game-stage">
+    <canvas id="heroCanvas"></canvas>
+  </div>
+
 </header>
 
 <style>
-  .pixel-scene {
-    min-height: 55vh;
-    display: flex;
-    align-items: center;
-    padding: 90px 40px 20px;
-  }
-
-  .scene-inner {
-    display: flex;
-    align-items: flex-end;
-    gap: 48px;
-    max-width: 860px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  /* 角色 */
-  .scene-character {
-    flex-shrink: 0;
+  .hero-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding-top: 68px;
+    min-height: 55vh;
   }
 
-  .scene-character img {
-    width: 160px;
+  /* 跑馬燈 */
+  .marquee-bar {
+    overflow: hidden;
+    white-space: nowrap;
+    background: #1a0a05;
+    border-top: 2px solid #ff7a1a;
+    border-bottom: 2px solid #ff7a1a;
+    padding: 7px 0;
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    animation: marquee-scroll 28s linear infinite;
+  }
+
+  .marquee-track span {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.75rem;
+    color: #ff7a1a;
+    letter-spacing: 3px;
+  }
+
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* 遊戲區 */
+  .game-stage {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 16px;
+  }
+
+  #heroCanvas {
+    display: block;
+    width: 100%;
+    max-width: 860px;
+    height: auto;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
-    display: block;
-  }
-
-  /* 像素地板 */
-  .scene-floor {
-    width: 200px;
-    height: 14px;
-    background: repeating-linear-gradient(
-      90deg,
-      #3a1a00 0px, #3a1a00 16px,
-      #2a1000 16px, #2a1000 32px
-    );
-    border-top: 3px solid #e86010;
-  }
-
-  /* 對話框 */
-  .dialogue-box {
-    flex: 1;
-    border: 4px solid #ff7a1a;
-    box-shadow: 8px 8px 0 #7a2800;
-    background: #0d0808;
-    margin-bottom: 14px;
-  }
-
-  .dialogue-speaker {
-    background: #e86010;
-    color: #000;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.6rem;
-    padding: 6px 14px;
-    letter-spacing: 2px;
-  }
-
-  .dialogue-content {
-    padding: 22px 26px;
-    font-family: 'Press Start 2P', cursive;
-    line-height: 2.4;
-    color: #fff;
-  }
-
-  .d-line {
-    margin: 0 0 8px 0;
-    font-size: 0.75rem;
-  }
-
-  .d-name {
-    color: #ff9944;
-    font-size: 0.85rem;
-  }
-
-  .d-sub {
-    font-size: 0.55rem;
-    color: #bbb;
-  }
-
-  .dialogue-cursor {
-    color: #ff7a1a;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 0.65rem;
-    padding: 0 26px 12px;
-    animation: pixel-blink 1s steps(1) infinite;
-  }
-
-  /* RWD */
-  @media (max-width: 640px) {
-    .pixel-scene {
-      padding: 90px 16px 20px;
-    }
-    .scene-inner {
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-    }
-    .scene-character img {
-      width: 110px;
-    }
-    .scene-floor {
-      width: 150px;
-    }
-    .dialogue-box {
-      margin-bottom: 0;
-      width: 100%;
-    }
-    .d-line { font-size: 0.6rem; }
-    .d-name { font-size: 0.7rem; }
-    .d-sub  { font-size: 0.5rem; }
+    border: 3px solid #ff7a1a;
+    box-shadow:
+      0 0 24px rgba(255, 122, 26, 0.25),
+      6px 6px 0 #7a2800;
+    background: #080404;
+    cursor: default;
   }
 </style>
+
+<script is:inline>
+(function () {
+  const canvas = document.getElementById('heroCanvas');
+  const ctx = canvas.getContext('2d');
+
+  const W = 860;
+  const H = 460;
+  canvas.width = W;
+  canvas.height = H;
+
+  /* ── Audio ───────────────────────────────────────── */
+  let audioCtx = null;
+  function initAudio() {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+  }
+  function beep(freq, dur, type = 'square', vol = 0.12) {
+    if (!audioCtx) return;
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+    gain.gain.setValueAtTime(vol, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + dur);
+    osc.start();
+    osc.stop(audioCtx.currentTime + dur);
+  }
+
+  /* ── Paddle ──────────────────────────────────────── */
+  const PAD_W = 100, PAD_H = 10;
+  const pad = { x: W / 2 - PAD_W / 2, y: H - 32, targetX: W / 2 - PAD_W / 2 };
+
+  /* ── Ball ────────────────────────────────────────── */
+  const BALL_R = 6;
+  const ball = {
+    x: W / 2, y: pad.y - BALL_R - 2,
+    vx: 3.2, vy: -4.2,
+    onPad: true
+  };
+
+  /* ── Bricks ──────────────────────────────────────── */
+  const ROWS = [
+    { labels: ['HELLO  !!'],                                hp: 2, color: '#ff00ff', fs: 22, bh: 50 },
+    { labels: ['I AM  WEN  CHIEN'],                         hp: 2, color: '#00ffff', fs: 20, bh: 48 },
+    { labels: ['FULLSTACK  DEV',  'GAME  ENGINEER'],        hp: 1, color: '#ff0066', fs: 14, bh: 40 },
+    { labels: ['GAME  DEV',  'WEB  DEV',  'UI / UX'],      hp: 1, color: '#00ff88', fs: 13, bh: 38 },
+    { labels: ['ASTRO', 'REACT', 'NODE.JS', 'COCOS'],      hp: 1, color: '#ffff00', fs: 11, bh: 34 },
+    { labels: ['★  HIRE  ME  ★',  '★  CONTACT  ME  ★'],   hp: 1, color: '#bf00ff', fs: 14, bh: 40 },
+  ];
+
+  const FONT_MONO    = "'Press Start 2P', monospace";
+  const CYBER_COLORS = ['#ff00ff','#00ffff','#ff0066','#00ff88','#ffff00','#bf00ff','#ff6600','#00ccff'];
+
+  const BRICK_GAP = 12;
+  const ROW_GAP   = 10;
+  const BRICK_PX  = 80;
+  const BRICK_Y0  = 20;
+
+  let bricks = [];
+
+  function initBricks() {
+    bricks = [];
+    let curY = BRICK_Y0;
+    ROWS.forEach((row) => {
+      const n = row.labels.length;
+      const bw = (W - BRICK_PX * 2 - BRICK_GAP * (n - 1)) / n;
+      row.labels.forEach((label, ci) => {
+        bricks.push({
+          x: BRICK_PX + ci * (bw + BRICK_GAP),
+          y: curY, w: bw, h: row.bh,
+          label, hp: row.hp, maxHp: row.hp,
+          color: row.color, fontSize: row.fs, flash: 0, alive: true,
+          /* text bounds — filled by measureBricks() */
+          cx: 0, cy: 0, tw: bw, th: row.bh
+        });
+      });
+      curY += row.bh + ROW_GAP;
+    });
+    measureBricks();
+  }
+
+  function measureBricks() {
+    for (const b of bricks) {
+      ctx.font = `bold ${b.fontSize}px ${FONT_MONO}`;
+      b.tw = ctx.measureText(b.label).width + 10; // slight hit padding
+      b.th = b.fontSize + 6;
+      b.cx = b.x + b.w / 2;
+      b.cy = b.y + b.h / 2;
+    }
+  }
+  initBricks();
+
+  /* ── Particles ───────────────────────────────────── */
+  let particles = [];
+
+  function burst(brick) {
+    const chars = brick.label.replace(/ /g, '').split('');
+    for (let i = 0; i < 18; i++) {
+      particles.push({
+        x: brick.x + brick.w / 2 + (Math.random() - 0.5) * brick.w * 0.6,
+        y: brick.y + brick.h / 2,
+        vx: (Math.random() - 0.5) * 9,
+        vy: Math.random() * -7 - 1,
+        life: 1,
+        decay: 0.02 + Math.random() * 0.025,
+        char: chars[Math.floor(Math.random() * chars.length)] || '★',
+        size: 9 + Math.random() * 10,
+        color: CYBER_COLORS[Math.floor(Math.random() * CYBER_COLORS.length)]
+      });
+    }
+  }
+
+  /* ── State ───────────────────────────────────────── */
+  let score   = 0;
+  let started = false;
+  let phase   = 'idle'; // idle | play | dead | win
+  let mouseX  = W / 2;
+
+  /* ── Input ───────────────────────────────────────── */
+  function handleMove(clientX) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = W / rect.width;
+    mouseX = (clientX - rect.left) * scaleX;
+    pad.targetX = mouseX - PAD_W / 2;
+
+    if (phase === 'idle') {
+      phase = 'play';
+      initAudio();
+    }
+  }
+
+  canvas.addEventListener('mousemove', e => handleMove(e.clientX));
+
+  canvas.addEventListener('touchmove', e => {
+    e.preventDefault();
+    handleMove(e.touches[0].clientX);
+  }, { passive: false });
+
+  canvas.addEventListener('touchstart', e => {
+    initAudio();
+    handleMove(e.touches[0].clientX);
+    if (phase === 'play' && ball.onPad) ball.onPad = false;
+  });
+
+  canvas.addEventListener('click', () => {
+    initAudio();
+    if (phase === 'play' && ball.onPad) { ball.onPad = false; return; }
+    if (phase === 'dead' || phase === 'win') reset();
+  });
+
+  function reset() {
+    score = 0;
+    phase = 'idle';
+    pad.x = W / 2 - PAD_W / 2;
+    pad.targetX = pad.x;
+    ball.x = W / 2; ball.y = pad.y - BALL_R - 2;
+    ball.vx = 3.2; ball.vy = -4.2;
+    ball.onPad = true;
+    particles = [];
+    initBricks();
+  }
+
+  /* ── Update ──────────────────────────────────────── */
+  function update() {
+    /* paddle lerp */
+    pad.x += (pad.targetX - pad.x) * 0.18;
+    pad.x = Math.max(0, Math.min(W - PAD_W, pad.x));
+
+    if (phase !== 'play') return;
+
+    if (ball.onPad) {
+      ball.x = pad.x + PAD_W / 2;
+      ball.y = pad.y - BALL_R - 2;
+      return;
+    }
+
+    ball.x += ball.vx;
+    ball.y += ball.vy;
+
+    /* walls */
+    if (ball.x - BALL_R <= 0)  { ball.x = BALL_R;     ball.vx =  Math.abs(ball.vx); beep(280, 0.05); }
+    if (ball.x + BALL_R >= W)  { ball.x = W - BALL_R; ball.vx = -Math.abs(ball.vx); beep(280, 0.05); }
+    if (ball.y - BALL_R <= 0)  { ball.y = BALL_R;     ball.vy =  Math.abs(ball.vy); beep(280, 0.05); }
+
+    /* fall */
+    if (ball.y > H + BALL_R * 4) {
+      phase = 'dead';
+      beep(110, 0.5, 'sawtooth', 0.18);
+      return;
+    }
+
+    /* paddle hit */
+    if (
+      ball.vy > 0 &&
+      ball.y + BALL_R >= pad.y &&
+      ball.y - BALL_R <= pad.y + PAD_H &&
+      ball.x + BALL_R >= pad.x &&
+      ball.x - BALL_R <= pad.x + PAD_W
+    ) {
+      ball.vy = -Math.abs(ball.vy);
+      const ratio = (ball.x - pad.x) / PAD_W;
+      ball.vx = (ratio - 0.5) * 9;
+      beep(440, 0.06);
+    }
+
+    /* brick hits */
+    let alive = 0;
+    for (const b of bricks) {
+      if (!b.alive) continue;
+      alive++;
+      const bLeft  = b.cx - b.tw / 2;
+      const bRight = b.cx + b.tw / 2;
+      const bTop   = b.cy - b.th / 2;
+      const bBot   = b.cy + b.th / 2;
+      if (
+        ball.x + BALL_R > bLeft && ball.x - BALL_R < bRight &&
+        ball.y + BALL_R > bTop  && ball.y - BALL_R < bBot
+      ) {
+        b.hp--;
+        b.flash = 6;
+        if (b.hp <= 0) {
+          b.alive = false;
+          alive--;
+          burst(b);
+          score += 10;
+          beep(660, 0.07);
+        } else {
+          beep(440, 0.04);
+        }
+        const ol = (ball.x + BALL_R) - bLeft;
+        const or_ = bRight - (ball.x - BALL_R);
+        const ot = (ball.y + BALL_R) - bTop;
+        const ob = bBot - (ball.y - BALL_R);
+        if (Math.min(ol, or_) < Math.min(ot, ob)) ball.vx *= -1;
+        else ball.vy *= -1;
+        break;
+      }
+    }
+
+    if (alive === 0) {
+      phase = 'win';
+      beep(880, 0.08); setTimeout(() => beep(1108, 0.08), 120); setTimeout(() => beep(1320, 0.18), 250);
+    }
+
+    /* particles */
+    for (let i = particles.length - 1; i >= 0; i--) {
+      const p = particles[i];
+      p.x += p.vx; p.y += p.vy; p.vy += 0.18;
+      p.life -= p.decay;
+      if (p.life <= 0) particles.splice(i, 1);
+    }
+
+    /* flash decay */
+    for (const b of bricks) if (b.flash > 0) b.flash--;
+  }
+
+  /* ── Draw ────────────────────────────────────────── */
+
+  function drawGrid() {
+    ctx.strokeStyle = 'rgba(0,255,255,0.04)';
+    ctx.lineWidth = 1;
+    for (let x = 0; x < W; x += 32) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
+    for (let y = 0; y < H; y += 32) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+  }
+
+  function drawBricks() {
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    for (const b of bricks) {
+      if (!b.alive) continue;
+      const col = b.flash > 0 ? '#ffffff' : b.color;
+      /* dim on 2nd hp remaining (already hit once) */
+      const alpha = (b.maxHp > 1 && b.hp === 1) ? 0.45 : 1;
+      ctx.globalAlpha = alpha;
+      ctx.shadowColor = col;
+      ctx.shadowBlur = b.flash > 0 ? 28 : 14;
+      ctx.fillStyle = col;
+      ctx.font = `bold ${b.fontSize}px ${FONT_MONO}`;
+      ctx.fillText(b.label, b.x + b.w / 2, b.y + b.h / 2);
+      ctx.shadowBlur = 0;
+      ctx.globalAlpha = 1;
+    }
+  }
+
+  function drawParticles() {
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    for (const p of particles) {
+      ctx.globalAlpha = Math.max(0, p.life);
+      ctx.shadowColor = p.color;
+      ctx.shadowBlur = 12;
+      ctx.fillStyle = p.color;
+      ctx.font = `${Math.floor(p.size)}px ${FONT_MONO}`;
+      ctx.fillText(p.char, p.x, p.y);
+    }
+    ctx.shadowBlur = 0;
+    ctx.globalAlpha = 1;
+  }
+
+  function drawPaddle() {
+    ctx.fillStyle = '#ff7a1a';
+    ctx.fillRect(pad.x, pad.y, PAD_W, PAD_H);
+    ctx.fillStyle = '#ffb870';
+    ctx.fillRect(pad.x, pad.y, PAD_W, 3);
+    ctx.fillStyle = '#7a2800';
+    ctx.fillRect(pad.x + PAD_W - 3, pad.y + 3, 3, PAD_H - 3);
+    ctx.fillRect(pad.x + 3, pad.y + PAD_H - 3, PAD_W - 3, 3);
+  }
+
+  function drawBall() {
+    /* glow ring */
+    ctx.fillStyle = 'rgba(255,153,68,0.22)';
+    ctx.beginPath(); ctx.arc(ball.x, ball.y, BALL_R + 5, 0, Math.PI * 2); ctx.fill();
+    /* ball */
+    ctx.fillStyle = '#ffb870';
+    ctx.beginPath(); ctx.arc(ball.x, ball.y, BALL_R, 0, Math.PI * 2); ctx.fill();
+    /* pixel highlight */
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(ball.x - BALL_R + 1, ball.y - BALL_R + 1, 3, 3);
+  }
+
+  function drawHUD() {
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.fillStyle = 'rgba(8,4,4,0.6)';
+    ctx.fillRect(W - 160, H - 34, 158, 30);
+    ctx.fillStyle = '#7a2800';
+    ctx.font = `6px ${FONT_MONO}`;
+    ctx.fillText('SCORE', W - 148, H - 28);
+    ctx.fillStyle = '#ff7a1a';
+    ctx.font = `11px ${FONT_MONO}`;
+    ctx.textAlign = 'right';
+    ctx.fillText(String(score).padStart(4, '0'), W - 6, H - 28);
+  }
+
+  function drawOverlay(title, sub, sub2) {
+    ctx.fillStyle = 'rgba(8,4,4,0.82)';
+    ctx.fillRect(0, H / 2 - 52, W, 104);
+    ctx.strokeStyle = '#ff7a1a';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(12, H / 2 - 52, W - 24, 104);
+
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#ff9944';
+    ctx.font = `11px ${FONT_MONO}`;
+    ctx.fillText(title, W / 2, H / 2 - 28);
+
+    ctx.fillStyle = '#ff7a1a';
+    ctx.font = `6px ${FONT_MONO}`;
+    ctx.fillText(sub, W / 2, H / 2 + 2);
+
+    ctx.fillStyle = '#7a2800';
+    ctx.font = `5px ${FONT_MONO}`;
+    ctx.fillText(sub2, W / 2, H / 2 + 24);
+  }
+
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    drawGrid();
+    drawBricks();
+    drawParticles();
+    drawPaddle();
+
+    if (phase !== 'idle') drawBall();
+
+    drawHUD();
+
+    if (phase === 'idle') {
+      drawOverlay(
+        'BREAKOUT',
+        'MOVE MOUSE TO READY',
+        'BREAK ALL BRICKS TO WIN'
+      );
+    }
+    if (phase === 'play' && ball.onPad) {
+      ctx.shadowColor = '#00ffff';
+      ctx.shadowBlur = 10;
+      ctx.fillStyle = '#00ffff';
+      ctx.font = `6px ${FONT_MONO}`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'bottom';
+      ctx.fillText('[ CLICK TO LAUNCH ]', W / 2, H - 8);
+      ctx.shadowBlur = 0;
+    }
+    if (phase === 'dead') {
+      drawOverlay(
+        'GAME OVER',
+        `SCORE : ${String(score).padStart(4, '0')}`,
+        'CLICK TO RETRY'
+      );
+    }
+    if (phase === 'win') {
+      drawOverlay(
+        'YOU  WIN !!',
+        `SCORE : ${String(score).padStart(4, '0')}`,
+        'CLICK TO PLAY AGAIN'
+      );
+    }
+  }
+
+  /* ── Loop ────────────────────────────────────────── */
+  function loop() {
+    update();
+    draw();
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+</script>

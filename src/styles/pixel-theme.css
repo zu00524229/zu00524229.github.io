@@ -7,7 +7,7 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, 0.7) 100%);
+  background: radial-gradient(ellipse at center, transparent 45%, rgba(0, 0, 0, 0.75) 100%);
   pointer-events: none;
   z-index: 9997;
 }
@@ -24,8 +24,8 @@ body::after {
   z-index: 9998;
   background: repeating-linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0.04) 0px,
-    rgba(0, 0, 0, 0.04) 1px,
+    rgba(0, 0, 0, 0.06) 0px,
+    rgba(0, 0, 0, 0.06) 1px,
     transparent 1px,
     transparent 3px
   );
@@ -42,36 +42,55 @@ img[src*='me.jpg'] {
 
 /* ===== 像素閃爍 ===== */
 @keyframes pixel-blink {
-  0%,
-  49% {
-    opacity: 1;
-  }
-  50%,
-  100% {
-    opacity: 0;
-  }
+  0%,  49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 
-/* ===== 像素光暈循環 ===== */
+/* ===== 像素浮動 ===== */
+@keyframes pixel-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+/* ===== 跑馬燈 ===== */
+@keyframes marquee {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(-100%); }
+}
+
+/* ===== 淡入 ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== 霓虹文字發光 ===== */
+@keyframes glow-text {
+  0%, 100% { text-shadow: 0 0 8px currentColor, 0 0 20px currentColor; }
+  50%       { text-shadow: 0 0 3px currentColor; }
+}
+
+/* ===== 閃爍裝飾 ===== */
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(0.7); }
+}
+
+/* ===== 像素光暈循環（box-shadow 版） ===== */
 @keyframes pixel-glow {
-  0% {
-    box-shadow: 4px 4px 0 0 #e86010;
-  }
-  50% {
-    box-shadow: 4px 4px 0 0 #ff9944, 0 0 12px rgba(255, 122, 26, 0.7);
-  }
-  100% {
-    box-shadow: 4px 4px 0 0 #e86010;
-  }
+  0%   { box-shadow: 4px 4px 0 0 var(--green, #56d156); }
+  50%  { box-shadow: 4px 4px 0 0 var(--yellow, #f8f060), 0 0 12px rgba(248, 240, 96, 0.6); }
+  100% { box-shadow: 4px 4px 0 0 var(--green, #56d156); }
 }
 
 /* ===== 文字閃爍游標 ===== */
 @keyframes cursor-blink {
-  0%,
-  100% {
-    border-right-color: #ff7a1a;
-  }
-  50% {
-    border-right-color: transparent;
-  }
+  0%, 100% { border-right-color: var(--yellow, #f8f060); }
+  50%       { border-right-color: transparent; }
 }
+
+/* ===== 工具 class ===== */
+.float-anim { animation: pixel-float 2s steps(4) infinite; }
+.blink-anim { animation: pixel-blink 1s steps(1) infinite; }
+.fade-in    { animation: fadeIn 0.25s steps(5) forwards; }
+.glow-text  { animation: glow-text 2s infinite; }

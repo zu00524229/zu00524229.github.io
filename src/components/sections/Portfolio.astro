@@ -24,6 +24,7 @@ const projects = [
     img: `${base}images/Runner.gif`,
     alt: '勇者無懼 — Unity 2D 動作遊戲',
     useLightbox: false,
+    link: 'https://first-game-runner.netlify.app/',
   },
   {
     id: 'learn5',
@@ -62,6 +63,11 @@ const projects = [
             >
               <img src={project.img} class="card-img-top pixel-gif" alt={project.alt} />
             </a>
+          ) : project.link ? (
+            <a href={project.link} target="_blank" rel="noopener noreferrer" class="img-link">
+              <img src={project.img} class="card-img-top pixel-gif" alt={project.alt} />
+              <div class="img-link-overlay">▶ PLAY</div>
+            </a>
           ) : (
             <img src={project.img} class="card-img-top pixel-gif" alt={project.alt} />
           )}
@@ -80,3 +86,28 @@ const projects = [
     ))}
   </div>
 </section>
+
+<style>
+  .img-link {
+    position: relative;
+    display: block;
+    cursor: pointer;
+  }
+  .img-link-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.75rem;
+    color: var(--yellow, #f8f060);
+    letter-spacing: 3px;
+    opacity: 0;
+    transition: opacity 0.1s steps(2);
+  }
+  .img-link:hover .img-link-overlay {
+    opacity: 1;
+  }
+</style>

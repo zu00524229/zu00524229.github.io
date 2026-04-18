@@ -2,6 +2,24 @@
    base.css — Reset、Typography、Body
    =================================== */
 
+/* CSS 變數（遊戲版配色） */
+:root {
+  --bg:      #0f0f1a;
+  --bg-card: #1a1a2e;
+  --yellow:  #f8f060;
+  --green:   #56d156;
+  --red:     #e83a2b;
+  --blue:    #4080f0;
+  --purple:  #9040e0;
+  --cyan:    #40d0e0;
+  --pink:    #e060b0;
+  --white:   #f0f0f0;
+  --gray:    #606060;
+  --black:   #000000;
+  --px:      'Press Start 2P', monospace;
+  --dot:     'DotGothic16', monospace;
+}
+
 /* Reset */
 * {
   margin: 0;
@@ -12,13 +30,13 @@
 /* Body */
 body {
   padding-top: 50px;
-  font-family: 'Courier New', Courier, monospace;
-  background-color: #080404;
+  font-family: 'DotGothic16', 'Courier New', Courier, monospace;
+  background-color: var(--bg);
   background-image:
-    linear-gradient(rgba(232, 96, 16, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(232, 96, 16, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(248, 240, 96, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(248, 240, 96, 0.04) 1px, transparent 1px);
   background-size: 32px 32px;
-  color: #ffffff;
+  color: var(--white);
   overflow-x: hidden;
 }
 
@@ -28,8 +46,8 @@ h2 {
   font-family: 'VT323', sans-serif;
   font-weight: bold;
   font-size: 3em;
-  color: #ff7a1a;
-  text-shadow: 3px 3px 0 #7a2800, 6px 6px 0 rgba(0, 0, 0, 0.5);
+  color: var(--yellow);
+  text-shadow: 3px 3px 0 var(--green), 6px 6px 0 rgba(0, 0, 0, 0.5);
   letter-spacing: 2px;
 }
 
@@ -55,14 +73,14 @@ td {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e86010;
+  background: var(--green);
   border: 2px solid #000;
-  box-shadow: inset -2px -2px 0 #7a2800;
+  box-shadow: inset -2px -2px 0 #000;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff9944;
-  box-shadow: inset -2px -2px 0 #7a2800;
+  background: var(--yellow);
+  box-shadow: inset -2px -2px 0 #000;
 }
 
 /* Section base */

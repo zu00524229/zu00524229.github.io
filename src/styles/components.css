@@ -6,25 +6,25 @@
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: #1a0a05;
-  border-bottom: 2px solid #e86010;
+  background-color: #0f0f23;
+  border-bottom: 2px solid var(--green, #56d156);
   font-family: 'Press Start 2P', cursive;
   font-size: 0.65rem;
   letter-spacing: 1px;
-  color: #ff7a1a;
+  color: var(--yellow, #f8f060);
 }
 
 /* ===== Card ===== */
 .card {
   border-radius: 0 !important;
-  border: 4px solid #e86010;
-  box-shadow: 6px 6px 0 0 #7a2800, 12px 12px 0 0 rgba(0, 0, 0, 0.3);
+  border: 4px solid var(--green, #56d156);
+  box-shadow: 6px 6px 0 0 #000, 12px 12px 0 0 rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.1s steps(2), transform 0.1s steps(2), border-color 0.1s steps(1);
   cursor: pointer;
   opacity: 0.95;
-  background-color: #0d0808;
+  background-color: var(--bg-card, #1a1a2e);
   display: flex;
-  color: #ffffff;
+  color: var(--white, #f0f0f0);
   text-align: left;
   padding-left: 0;
   padding-right: 0;
@@ -35,11 +35,11 @@
 }
 
 .card:hover {
-  border-color: #ff9944;
-  box-shadow: 6px 6px 0 0 #7a2800, 0 0 0 2px #ff7a1a, 0 0 20px rgba(232, 96, 16, 0.5);
+  border-color: var(--yellow, #f8f060);
+  box-shadow: 6px 6px 0 0 #000, 0 0 0 2px var(--yellow, #f8f060), 0 0 20px rgba(248, 240, 96, 0.35);
   transform: translate(-2px, -2px);
   opacity: 1;
-  filter: brightness(1.1);
+  filter: brightness(1.08);
 }
 
 .card img {
@@ -63,37 +63,37 @@
 
 .card-content p {
   font-size: 12px;
-  color: #e86010;
+  color: var(--green, #56d156);
   font-family: 'Press Start 2P', cursive;
 }
 
 /* ===== Hero Card ===== */
 .resume-header .card {
-  border: 4px solid #ff7a1a !important;
+  border: 4px solid var(--yellow, #f8f060) !important;
   border-radius: 0 !important;
-  box-shadow: 8px 8px 0 0 #7a2800;
+  box-shadow: 8px 8px 0 0 #000;
 }
 
 /* ===== Typed.js Card ===== */
 .border-success {
-  border-color: #e86010 !important;
+  border-color: var(--green, #56d156) !important;
   border-width: 3px !important;
   border-radius: 0 !important;
-  box-shadow: 4px 4px 0 0 #7a2800;
-  background-color: #1a0800 !important;
+  box-shadow: 4px 4px 0 0 #000;
+  background-color: #0f0f23 !important;
 }
 
 /* ===== Profile Photo (override rounded-circle) ===== */
 .rounded-circle {
   border-radius: 0 !important;
-  border: 4px solid #e86010;
-  box-shadow: 4px 4px 0 0 #7a2800;
+  border: 4px solid var(--yellow, #f8f060);
+  box-shadow: 4px 4px 0 0 #000;
   image-rendering: pixelated;
 }
 
 /* ===== Buttons ===== */
 button {
-  background-color: #e86010;
+  background-color: var(--green, #56d156);
   color: #000;
   border: 3px solid #000;
   padding: 10px 20px;
@@ -101,16 +101,16 @@ button {
   font-size: 0.75rem;
   border-radius: 0 !important;
   font-family: 'Press Start 2P', cursive;
-  box-shadow: 4px 4px 0 0 #7a2800;
+  box-shadow: 4px 4px 0 0 #000;
   transition: box-shadow 0.05s, transform 0.05s;
 }
 
 button:hover {
   color: #000;
-  background-color: #ff9944;
-  box-shadow: 2px 2px 0 0 #7a2800;
+  background-color: var(--yellow, #f8f060);
+  box-shadow: 2px 2px 0 0 #000;
   transform: translate(2px, 2px);
-  filter: brightness(1.1);
+  filter: brightness(1.05);
 }
 
 button:active {
@@ -119,20 +119,20 @@ button:active {
 }
 
 .btn-warning {
-  background-color: #e86010 !important;
+  background-color: var(--green, #56d156) !important;
   color: #000 !important;
   border-radius: 0 !important;
   font-family: 'Press Start 2P', cursive;
   font-size: 0.55rem;
   border: 3px solid #000 !important;
-  box-shadow: 4px 4px 0 0 #7a2800;
+  box-shadow: 4px 4px 0 0 #000;
   transition: box-shadow 0.05s, transform 0.05s;
   padding: 8px 12px;
 }
 
 .btn-warning:hover {
-  background-color: #ff9944 !important;
-  box-shadow: 2px 2px 0 0 #7a2800;
+  background-color: var(--yellow, #f8f060) !important;
+  box-shadow: 2px 2px 0 0 #000;
   transform: translate(2px, 2px);
 }
 
@@ -143,20 +143,20 @@ button:active {
 
 /* ===== Form ===== */
 #contact {
-  background-color: rgba(37, 36, 36, 0.14);
+  background-color: rgba(26, 26, 46, 0.14);
   padding: 2rem;
   text-align: center;
-  color: #ffffff;
+  color: var(--white, #f0f0f0);
 }
 
 form {
   max-width: 500px;
   margin: 0 auto;
-  background: #100505;
+  background: var(--bg-card, #1a1a2e);
   padding: 2rem;
   border-radius: 0;
-  border: 4px solid #e86010;
-  box-shadow: 6px 6px 0 0 #7a2800;
+  border: 4px solid var(--green, #56d156);
+  box-shadow: 6px 6px 0 0 #000;
 }
 
 form input,
@@ -165,16 +165,16 @@ form button {
   width: 100%;
   margin: 0.5rem 0;
   padding: 1rem;
-  border: 2px solid #e86010;
-  background: #0d0808;
-  color: #ff9944;
+  border: 2px solid var(--green, #56d156);
+  background: #0f0f1a;
+  color: var(--yellow, #f8f060);
   font-size: 0.8rem;
   border-radius: 0;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'DotGothic16', 'Courier New', Courier, monospace;
 }
 
 form button {
-  background-color: #e86010;
+  background-color: var(--green, #56d156);
   color: #000;
   border: none;
   cursor: pointer;
@@ -183,9 +183,9 @@ form button {
 }
 
 form button:hover {
-  background-color: #ff9944;
+  background-color: var(--yellow, #f8f060);
   color: #000;
-  box-shadow: 4px 4px 0 0 #7a2800;
+  box-shadow: 4px 4px 0 0 #000;
 }
 
 /* ===== Back to Top ===== */
@@ -194,21 +194,21 @@ form button:hover {
   bottom: 20px;
   right: 20px;
   display: none;
-  background-color: #1a0800;
+  background-color: #1a1a2e;
   color: white;
   border-radius: 0 !important;
-  border: 3px solid #e86010;
+  border: 3px solid var(--green, #56d156);
   padding: 8px;
   cursor: pointer;
   z-index: 1000;
-  box-shadow: 4px 4px 0 0 #7a2800;
+  box-shadow: 4px 4px 0 0 #000;
   transition: box-shadow 0.05s, transform 0.05s;
 }
 
 .back-to-top:hover {
   transform: translate(2px, 2px);
-  border-color: #ff9944;
-  box-shadow: 2px 2px 0 0 #7a2800, 0 0 12px rgba(255, 122, 26, 0.5);
+  border-color: var(--yellow, #f8f060);
+  box-shadow: 2px 2px 0 0 #000, 0 0 12px rgba(248, 240, 96, 0.4);
 }
 
 .back-to-top img {
@@ -241,15 +241,15 @@ form button:hover {
   image-rendering: crisp-edges;
 }
 
-/* ===== Progress Bars ===== */
+/* ===== Progress Bars (HP Bar style) ===== */
 .progress {
   font-family: 'Press Start 2P', cursive;
 }
 
 .pixel-progress {
   height: 20px;
-  background-color: #111;
-  border: 3px solid #555;
+  background-color: #000;
+  border: 3px solid var(--white, #f0f0f0);
   border-radius: 0 !important;
   appearance: none;
   -webkit-appearance: none;
@@ -258,30 +258,30 @@ form button:hover {
 }
 
 .pixel-progress::-webkit-progress-bar {
-  background-color: #111;
+  background-color: #000;
   border-radius: 0;
 }
 
 .pixel-progress::-webkit-progress-value {
   background: repeating-linear-gradient(
     90deg,
-    #ff7a1a 0px,
-    #ff7a1a 8px,
-    #c45000 8px,
-    #c45000 12px
+    #56d156 0px,
+    #56d156 8px,
+    #3a9e3a 8px,
+    #3a9e3a 12px
   );
   image-rendering: pixelated;
   border-radius: 0;
-  box-shadow: 0 0 6px rgba(255, 122, 26, 0.5);
+  box-shadow: 0 0 6px rgba(86, 209, 86, 0.5);
 }
 
 .pixel-progress::-moz-progress-bar {
   background: repeating-linear-gradient(
     90deg,
-    #ff7a1a 0px,
-    #ff7a1a 8px,
-    #c45000 8px,
-    #c45000 12px
+    #56d156 0px,
+    #56d156 8px,
+    #3a9e3a 8px,
+    #3a9e3a 12px
   );
   border-radius: 0;
 }
@@ -301,17 +301,17 @@ form button:hover {
   height: 200px;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
-  border-bottom: 3px solid #3a1a00;
+  border-bottom: 3px solid var(--green, #56d156);
 }
 
 .portfolio-card:hover {
   transform: translate(-3px, -3px);
-  box-shadow: 6px 6px 0 0 #e86010, 0 0 0 3px #ff7a1a;
+  box-shadow: 6px 6px 0 0 var(--yellow, #f8f060), 0 0 0 3px var(--green, #56d156);
 }
 
 .portfolio-card .card-body {
   text-align: center;
-  background-color: #0d0d0d;
+  background-color: var(--bg-card, #1a1a2e);
 }
 
 .row-cols-1 .col,
@@ -325,7 +325,7 @@ form button:hover {
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
-  border: 3px solid #3a1a00;
+  border: 3px solid var(--green, #56d156);
   box-shadow: 4px 4px 0 0 #000;
   display: block;
 }
@@ -336,61 +336,60 @@ form button:hover {
   opacity: 0.88 !important;
 }
 
-
 .lightbox .lb-image {
-  border: 4px solid #ff7a1a !important;
+  border: 4px solid var(--yellow, #f8f060) !important;
   border-radius: 0 !important;
-  box-shadow: 8px 8px 0 #7a2800 !important;
+  box-shadow: 8px 8px 0 #000 !important;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
 }
 
 .lb-outerContainer {
-  background: #0d0808 !important;
-  border: 4px solid #ff7a1a !important;
+  background: var(--bg-card, #1a1a2e) !important;
+  border: 4px solid var(--yellow, #f8f060) !important;
   border-radius: 0 !important;
-  box-shadow: 8px 8px 0 #7a2800 !important;
+  box-shadow: 8px 8px 0 #000 !important;
 }
 
 .lb-dataContainer {
-  background: #1a0a05 !important;
-  border-top: 2px solid #3a1a00 !important;
+  background: #0f0f23 !important;
+  border-top: 2px solid var(--green, #56d156) !important;
   border-radius: 0 !important;
   padding: 8px 12px !important;
 }
 
 .lb-caption {
-  color: #ff9944 !important;
+  color: var(--yellow, #f8f060) !important;
   font-family: 'Press Start 2P', cursive !important;
   font-size: 0.55rem !important;
   line-height: 2 !important;
 }
 
 .lb-number {
-  color: #e86010 !important;
+  color: var(--green, #56d156) !important;
   font-family: 'Press Start 2P', cursive !important;
   font-size: 0.5rem !important;
 }
 
 .lb-close {
-  filter: invert(55%) sepia(80%) saturate(500%) hue-rotate(355deg) !important;
+  filter: invert(65%) sepia(60%) saturate(500%) hue-rotate(85deg) !important;
   opacity: 1 !important;
 }
 
 .lb-close:hover {
-  filter: invert(75%) sepia(80%) saturate(400%) hue-rotate(355deg) !important;
+  filter: invert(85%) sepia(70%) saturate(600%) hue-rotate(10deg) !important;
 }
 
 .lb-prev,
 .lb-next {
   opacity: 0.7 !important;
-  filter: invert(55%) sepia(80%) saturate(500%) hue-rotate(355deg) !important;
+  filter: invert(65%) sepia(60%) saturate(500%) hue-rotate(85deg) !important;
 }
 
 .lb-prev:hover,
 .lb-next:hover {
   opacity: 1 !important;
-  filter: invert(75%) sepia(80%) saturate(400%) hue-rotate(355deg) !important;
+  filter: invert(85%) sepia(70%) saturate(600%) hue-rotate(10deg) !important;
 }
 
 /* ===== SweetAlert2 像素風覆寫 ===== */
@@ -399,28 +398,28 @@ form button:hover {
 }
 
 .pixel-swal-popup {
-  border: 4px solid #ff7a1a !important;
+  border: 4px solid var(--yellow, #f8f060) !important;
   border-radius: 0 !important;
-  box-shadow: 8px 8px 0 #7a2800, 0 0 0 9999px rgba(4, 2, 2, 0.85) !important;
-  background: #0d0808 !important;
+  box-shadow: 8px 8px 0 #000, 0 0 0 9999px rgba(4, 2, 2, 0.85) !important;
+  background: var(--bg-card, #1a1a2e) !important;
   padding: 0 !important;
 }
 
 .pixel-swal-title {
-  color: #ff7a1a !important;
+  color: var(--yellow, #f8f060) !important;
   font-family: 'Press Start 2P', cursive !important;
   font-size: 0.85rem !important;
   line-height: 1.8 !important;
-  border-bottom: 2px solid #3a1a00 !important;
+  border-bottom: 2px solid var(--green, #56d156) !important;
   padding: 16px 20px !important;
   margin: 0 !important;
   text-align: left !important;
-  background: #1a0a05 !important;
+  background: #0f0f23 !important;
 }
 
 .pixel-swal-content {
-  color: #ddd !important;
-  font-family: 'Courier New', monospace !important;
+  color: var(--white, #f0f0f0) !important;
+  font-family: 'DotGothic16', 'Courier New', monospace !important;
   font-size: 0.9rem !important;
   line-height: 1.9 !important;
   text-align: left !important;
@@ -428,40 +427,40 @@ form button:hover {
 }
 
 .pixel-swal-confirm {
-  background-color: #e86010 !important;
+  background-color: var(--green, #56d156) !important;
   color: #000 !important;
   border: 3px solid #000 !important;
   border-radius: 0 !important;
   font-family: 'Press Start 2P', cursive !important;
   font-size: 0.55rem !important;
   padding: 8px 18px !important;
-  box-shadow: 4px 4px 0 #7a2800 !important;
+  box-shadow: 4px 4px 0 #000 !important;
   cursor: pointer !important;
   transition: none !important;
   margin: 0 22px 18px !important;
 }
 
 .pixel-swal-confirm:hover {
-  background-color: #ff9944 !important;
+  background-color: var(--yellow, #f8f060) !important;
   transform: translate(2px, 2px) !important;
-  box-shadow: 2px 2px 0 #7a2800 !important;
+  box-shadow: 2px 2px 0 #000 !important;
 }
 
 .pixel-swal-close {
-  color: #e86010 !important;
+  color: var(--yellow, #f8f060) !important;
   font-size: 1.6rem !important;
   top: 8px !important;
   right: 10px !important;
 }
 
 .pixel-swal-close:hover {
-  color: #ff9944 !important;
+  color: var(--green, #56d156) !important;
   background: transparent !important;
 }
 
 /* toast（top-end 小彈窗）補強 */
 .pixel-swal-popup.swal2-toast {
-  box-shadow: 4px 4px 0 #7a2800 !important;
+  box-shadow: 4px 4px 0 #000 !important;
 }
 
 /* ===== Contact Icons ===== */
@@ -472,7 +471,7 @@ form button:hover {
 
 .icon-container i:hover {
   transform: scale(1.1);
-  filter: drop-shadow(0 0 8px #ff7a1a);
+  filter: drop-shadow(0 0 8px var(--yellow, #f8f060));
 }
 
 .icon-container2 i {
@@ -481,6 +480,6 @@ form button:hover {
 }
 
 .icon-container2 i:hover {
-  filter: drop-shadow(0 0 10px #ff7a1a);
+  filter: drop-shadow(0 0 10px var(--yellow, #f8f060));
   transform: scale(1.1);
 }
